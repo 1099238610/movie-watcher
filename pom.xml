@@ -13,5 +13,22 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    
+    <dependencies>
+        <!--    避免使用 2.0 以下版本, 因为可能具有安全漏洞    -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>2.0</version> 
+         </dependency>
+        
+        <!-- Spring Boot 3.1.5 版本 (2023.10.28 最新版本), 要求 Java 17 和 Maven 3.6.3 以上版本 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>3.1.5</version> 
+        </dependency>
+
+    </dependencies>
 
 </project>
