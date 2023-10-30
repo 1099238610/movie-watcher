@@ -15,4 +15,10 @@ public interface UserMapper {
      * @return 用户列表
      */
     List<User> selectAll();
+
+    /**
+     * 添加新用户
+     * @param user 用户数据对象
+     */
+    void insertUser(User user);
 }

@@ -14,4 +14,11 @@ public interface UserService {
      * @return 用户列表
      */
     List<UserDTO> getAllUsers();
+
+    /**
+     * 添加新用户
+     * @param user 用户对象
+     * @return 操作结果信息
+     */
+    String addUser(UserDTO user);
 }

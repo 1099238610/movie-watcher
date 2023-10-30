@@ -5,4 +5,8 @@
     <select id="selectAll" resultType="org.example.model.entity.User">
         SELECT * FROM users
     </select>
+    
+    <insert id="insertUser" parameterType="org.example.model.entity.User">
+            INSERT INTO users (username, password, email) VALUES (#{username}, #{password}, #{email}) 
+    </insert>
 </mapper>
