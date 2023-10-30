@@ -2,6 +2,8 @@ package org.example.model.DTO;
 
 import lombok.Data;
 
+import java.sql.Timestamp;
+
 /**
  * @author 高子航
  */
@@ -13,5 +15,5 @@ public class UserDTO {
 
     String email;
 
-    String registerTime;
+    Timestamp registerTime;
 }

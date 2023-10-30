@@ -21,4 +21,11 @@ public interface UserMapper {
      * @param user 用户数据对象
      */
     void insertUser(User user);
+
+    /**
+     * 获取用户密码
+     * @param userId 用户ID
+     * @return 用户加密后的密码
+     */
+    String selectPassword(String email);
 }

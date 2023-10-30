@@ -2,6 +2,7 @@ package org.example.model.entity;
 
 import lombok.Data;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -14,6 +15,6 @@ public class User {
     String password;
     
     String email;
-    
-    String registerTime;
+
+    Timestamp registerTime;
 }

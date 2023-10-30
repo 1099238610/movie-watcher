@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,8 +47,21 @@ public class UserServiceImpl implements UserService {
     public String addUser(UserDTO userDTO) {
         // 加密用户密码
         userDTO.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        
+        // 设置用户注册的时间戳
+        userDTO.setRegisterTime(new Timestamp(System.currentTimeMillis()));
+        
         User user = modelMapper.map(userDTO, User.class);
         userMapper.insertUser(user);
         return null;
     }
+
+    @Override
+    public boolean login(UserDTO user) {
+        // 获取数据库密码
+        String encodePassword = userMapper.selectPassword(user.getEmail());
+        return passwordEncoder.matches(user.getPassword(), encodePassword);
+    }
+
+
 }

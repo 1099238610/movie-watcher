@@ -21,4 +21,12 @@ public interface UserService {
      * @return 操作结果信息
      */
     String addUser(UserDTO user);
+
+
+    /**
+     * 验证用户身份
+     * @param user 用户信息
+     * @return 是否确认为该用户
+     */
+    boolean login(UserDTO user);
 }

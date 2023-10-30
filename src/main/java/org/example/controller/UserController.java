@@ -28,9 +28,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerUser(@RequestBody UserDTO userDTO) {
+    public String register(@RequestBody UserDTO userDTO) {
         userService.addUser(userDTO);
         return "success";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Boolean login(@RequestBody UserDTO userDTO) {
+        return userService.login(userDTO);
     }
     
 }
