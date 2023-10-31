@@ -3,7 +3,6 @@ package org.example.model.entity;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 /**
  * @author 高子航

@@ -24,7 +24,7 @@ public interface UserMapper {
 
     /**
      * 获取用户密码
-     * @param userId 用户ID
+     * @param email 用户邮箱
      * @return 用户加密后的密码
      */
     String selectPassword(String email);

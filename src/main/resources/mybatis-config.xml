@@ -19,7 +19,7 @@
     </environments>
     
     <mappers>
-        <mapper class="org.example.mapper.UserMapper"/>
+        <package name="org.example.mapper"/>
     </mappers>
     
 </configuration>
