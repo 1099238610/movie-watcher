@@ -1,14 +1,11 @@
-package org.example.model.entity;
+package org.example.model.DTO;
 
 import lombok.Data;
 
 import java.sql.Date;
 
-/**
- * @author Gzh
- */
 @Data
-public class Movie {
+public class MovieDTO {
     /**
      * 主键 ID
      */
@@ -43,27 +40,27 @@ public class Movie {
      *  电影名称
      */
     String directors;
-    
+
     /**
      *  类型
      */
     String genres;
-    
+
     /**
      *  官方网址
      */
     String officialSite;
-    
+
     /**
      *  地区
      */
     String regions;
-    
+
     /**
      *  语言
      */
     String languages;
-    
+
     /**
      *  上映日期
      */

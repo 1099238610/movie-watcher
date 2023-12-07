@@ -6,6 +6,9 @@ import org.example.model.DTO.UserDTO;
 import org.example.model.entity.User;
 import org.example.service.UserService;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -53,6 +56,7 @@ public class UserServiceImpl implements UserService {
         
         User user = modelMapper.map(userDTO, User.class);
         userMapper.insertUser(user);
+        
         return null;
     }
 
@@ -60,7 +64,17 @@ public class UserServiceImpl implements UserService {
     public boolean login(UserDTO user) {
         // 获取数据库密码
         String encodePassword = userMapper.selectPassword(user.getEmail());
-        return passwordEncoder.matches(user.getPassword(), encodePassword);
+        
+        // 匹配密文是否正确
+        if (! passwordEncoder.matches(user.getPassword(), encodePassword)){
+            return false;
+        }
+
+        // 账号密码正确了才将认证信息放到上下文中
+        Authentication authentication = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword(), null);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        
+        return true;
     }
 
 

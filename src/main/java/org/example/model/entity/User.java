@@ -9,6 +9,8 @@ import java.sql.Timestamp;
  */
 @Data
 public class User {
+    Integer id;
+    
     String username;
     
     String password;

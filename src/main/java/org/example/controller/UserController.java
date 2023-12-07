@@ -21,7 +21,7 @@ public class UserController {
     
     @Resource
     private UserService userService;
-
+    
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
